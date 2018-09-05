@@ -1,6 +1,6 @@
 {
   "name": "generate-radix-tree",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Generates a function that uses a radix tree to match which pattern fits the input",
   "main": "index.js",
   "dependencies": {},
