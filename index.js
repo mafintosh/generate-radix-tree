@@ -46,7 +46,7 @@ function gentree (strings, opts) {
 
   function visit (tree, abs, offset) {
     if (tree.prefix.length) {
-      genif(tree.prefix)
+      genif(tree.prefix, tree.value === null)
     }
 
     if (tree.value !== null) {
@@ -87,8 +87,10 @@ function gentree (strings, opts) {
       gen('}')
     }
 
-    function genif (match) {
-      gen('if (' + normalize(match).map(mapMatch).join(' && ') + ') {')
+    function genif (match, prefix) {
+      const m = normalize(match).map(mapMatch)
+      if (!prefix) m.push(`${name}.length === ${ptr()}`)
+      gen('if (' + m.join(' && ') + ') {')
     }
 
     function mapString (str) {
