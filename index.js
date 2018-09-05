@@ -20,6 +20,7 @@ function gentree (strings, opts) {
   const gen = opts.gen || genfun()
   const name = opts.name || 's'
   const onvalue = opts.onvalue || visitValue
+  const syms = new Map()
 
   gen.sym(name)
 
@@ -107,7 +108,8 @@ function gentree (strings, opts) {
 
     function mapMatch (x) {
       if (typeof x === 'string') return mapString(x)
-      const match = gen.sym('match')
+      const match = syms.get(x) || gen.sym('match')
+      syms.set(x, match)
       gen.scope[match] = x
       const src = `${match}(${name}, ${ptr()})`
       abs = match + '.pointer'
