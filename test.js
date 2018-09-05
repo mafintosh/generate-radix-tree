@@ -19,6 +19,14 @@ tape('basic', function (t) {
   t.end()
 })
 
+tape('only one', function (t) {
+  const choose = gentree([ 'hey' ])
+
+  t.same(choose('hey'), 'hey')
+  t.same(choose('heyho'), null)
+  t.end()
+})
+
 tape('basic with function', function (t) {
   const choose = gentree([
     [ 'hello', any, 'world' ],
