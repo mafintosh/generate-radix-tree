@@ -9,7 +9,7 @@
     "tape": "^4.9.1"
   },
   "scripts": {
-    "test": "standard&& tape test.js"
+    "test": "standard && tape test.js"
   },
   "repository": {
     "type": "git",
