@@ -45,7 +45,7 @@ const match = gentree([
 ])
 
 console.log(match('hello world')) // return {match: 'hello world'}
-console.log(match('hello_world')) // return {match: ['hello', any, 'world]}
+console.log(match('hello_world')) // return {match: ['hello', any, 'world']}
 
 // match any char in str at ptr
 function any (str, ptr) {
